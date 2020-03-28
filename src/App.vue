@@ -1,16 +1,25 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation/>
+    <CompanyInfo/>
+    <Register/>
+    <Login/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+const CompanyInfo = () => import('./components/CompanyInfo')
+const Navigation = () => import('@/components/TheNavigation')
+const Register = () => import('@/views/Register')
+const Login = () => import('@/views/Login')
 import './assets/style.css'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navigation,
+    CompanyInfo,
+    Register,
+    Login
   }
 }
 </script>

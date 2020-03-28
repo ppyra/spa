@@ -177,7 +177,7 @@ img {
   width: 100%;
   transition: all .25s ease-in-out; }
   .c-nav__item:hover {
-    color: #ffffff; }
+    color: #d9d9d9; }
   @media (min-width: 1100px) {
     .c-nav__item {
       display: inline-block;

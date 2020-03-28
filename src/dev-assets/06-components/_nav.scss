@@ -1,5 +1,4 @@
 .c-nav {
-
     &__item {
         color: $white;
         display: block;
@@ -10,11 +9,9 @@
         text-transform: uppercase;
         width: 100%;
         transition: all .25s ease-in-out;
-
         &:hover {
-            color: $white;
+            color: darken($white, 15%);
         }
-
         @include large-up {
             display: inline-block;
             margin-left: $grid-base * 2.5;
