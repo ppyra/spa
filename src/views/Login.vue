@@ -8,7 +8,8 @@ export default {
     name: 'Login',
     methods: {
         async onSubmit () {
-            await this.$store.dispatch('login', {
+            let self = this
+            await self.$store.dispatch('security/login', {
                 email: 'ppyra@gmail.com',
                 password: 'admin123',
                 returnSecureToken: true

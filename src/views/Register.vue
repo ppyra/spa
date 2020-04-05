@@ -13,7 +13,7 @@ data() {
 },
 methods: {
     async onSubmit () {
-        await this.$store.dispatch('register', {
+        await this.$store.dispatch('security/register', {
             email: 'ppyra@gmail.com',
             password: 'admin123',
             returnSecureToken: true

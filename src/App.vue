@@ -20,6 +20,9 @@ export default {
     CompanyInfo,
     Register,
     Login
+  },
+  async mounted () {
+    //await this.$store.dispatch('web_content/getContentPage')
   }
 }
 </script>

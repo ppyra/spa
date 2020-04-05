@@ -8,5 +8,5 @@ gulp.task('buildcss', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('dev-assets/**/*.scss', gulp.series('buildcss'));
+    gulp.watch('src/dev-assets/**/*.scss', gulp.series('buildcss'));
 });
