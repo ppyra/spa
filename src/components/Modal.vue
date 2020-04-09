@@ -13,8 +13,8 @@
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            <button type="button" class="c-btn c-btn--accent" @click="close">Close me!</button>
-            <button type="button" class="c-btn c-btn--primary" @click="close">Close me!</button>
+            <button type="button" class="c-btn c-btn--accent" @click="close">Anuluj</button>
+            <button type="button" class="c-btn c-btn--primary" @click="save">Zapisz</button>
         </slot>
       </footer>
     </div>
@@ -25,11 +25,13 @@
 <script>
   export default {
     name: 'modal',
-
     methods: {
       close() {
         this.$emit('close');
       },
+      save() {
+        this.$emit('update')
+      }
     },
   };
 </script>

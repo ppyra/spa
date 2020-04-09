@@ -1,11 +1,14 @@
 import axios from 'axios'
 export default {
-    async getContentPage({ commit }, state) {
-        if (state.userId === null) {
-            return
-        }
+    getContentPage({ commit }) {
+
+        // if (state.userId === null) {
+        //     return
+        // }
         try {
-            let { data } = await axios('https://spa-podolog.firebaseio.com/content.json')
+            // eslint-disable-next-line no-debugger
+            debugger
+            let { data } = axios.get('https://spa-podolog.firebaseio.com/content.json')
             commit('setContent', Object.values(data))
         } catch (e) {
             console.log(e)

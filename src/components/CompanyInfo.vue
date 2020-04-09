@@ -24,8 +24,18 @@
                 </div>
             </div>
             <button @click="onclick">bbbb</button>
-             <button type="button" class="btn" @click="showModal">Open Modal!</button>
-              <modal v-show="isModalVisible" @close="closeModal" />
+            <button type="button" class="btn" @click="showModal">Open Modal!</button>
+              
+            <modal v-show="isModalVisible" @close="closeModal" @update="update">
+              <template slot='header'>Company Info</template>
+              <template slot='body'>
+                <label for="ftitle">Zmień tytuł</label>
+                <input class="c-input" type="text" id="ftitle" v-model="title" name="title" placeholder="Nowy tytuł...">
+
+                <label for="fdesc">Zmień opis</label>
+                <textarea rows="5" class="c-input c-input" type="text" id="fdesc" v-model="desc" name="desc" placeholder="Nowy opis..."/>
+              </template>
+            </modal>
         </div>
     </section>
   </div>
@@ -33,9 +43,12 @@
 
 <script>
 const modal = () => import('./Modal')
+import mixinContent from '@/mixins.js'
+import { cloneDeep } from 'lodash'
 export default {
   name: 'CompanyInfo',
   components: { modal },
+  mixins: [mixinContent],
   data () {
     return {
       content: {
@@ -44,7 +57,9 @@ export default {
           description: ''
         }
       },
-      isModalVisible: false
+      isModalVisible: false,
+      title: '',
+      desc: ''
     }
   },
   methods: {
@@ -54,11 +69,23 @@ export default {
       console.log(this.content)
     },
     showModal () {
-        this.isModalVisible = true;
-      },
-      closeModal() {
+      let self  = this
+      self.title = cloneDeep(self.content.CompanyInfo.title)
+      self.desc = cloneDeep(self.content.CompanyInfo.description)
+      this.isModalVisible = true;
+    },
+    closeModal() {
         this.isModalVisible = false;
-      }
+    },
+    update() {
+      let self = this
+      self.content.CompanyInfo.title = cloneDeep(self.title)
+      self.content.CompanyInfo.description = cloneDeep(self.desc)
+      self.saveContent(self.content)
+      this.isModalVisible = false;
+      self.title = ''
+      self.desc = ''
+    }
   }
 }
 </script>

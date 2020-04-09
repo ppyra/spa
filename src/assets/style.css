@@ -244,6 +244,19 @@ img {
   padding: 5px 10px;
   font-size: 1.3rem; }
 
+.c-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none; }
+  .c-input--desc {
+    height: 100px;
+    word-wrap: break-word; }
+
 .t-site-header {
   background: url("images/header-tlo.jpg") 0 0 no-repeat; }
   @media (min-width: 1100px) {

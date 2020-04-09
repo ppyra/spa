@@ -1,5 +1,5 @@
 export default {
     setContent(state, payload) {
-        state.content = payload
+        state.content[payload] = payload
     }
 }
